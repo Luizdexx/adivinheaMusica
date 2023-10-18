@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>Adivinhe a música</title>
+    <style>
+      
+
+      .byline {
+    color: gold; /* Altera a cor do texto para dourado */
+    text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffaa00, 0 0 20px #ffaa00, 0 0 30px #ffaa00; /* Cria um efeito de brilho */
+    animation: glow 2s ease-in-out infinite alternate; /* Adiciona uma animação de brilho */
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffaa00, 0 0 20px #ffaa00, 0 0 30px #ffaa00;
+    }
+    to {
+      text-shadow: 0 0 20px #ffff00, 0 0 30px #ffff00, 0 0 40px #ffaa00, 0 0 50px #ffaa00, 0 0 60px #ffaa00;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="starwars-demo">
+        <!-- <img src="guitarhero.png" alt="Star" class="star"> -->
+        <!-- <img src="guitarhero.png" alt="Wars" class="wars"> -->
+        <h2 class="byline" id="byline">Adivinhe A Musica </h2>
+      </div>
+      
+      <style>
+        /* Animation properties */
+.star {
+  animation: star 10s ease-out;
+}
+.wars {
+  animation: wars 10s ease-out;
+}
+.byline span {
+  animation: spin-letters 10s linear ;
+}
+.byline {
+  animation: move-byline 10s linear ;
+}
+.byline:animation-finish{
+  display: none;
+}
+/* Keyframes */
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes spin-letters {
+  0%, 10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30%, 90% {
+    opacity: 1;
+    transform: rotateY(0);
+  }100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+    opacity: 1;
+  }
+  90%{
+    transform: translateZ(0);
+    opacity: 1;
+  }100% {
+    transform: translateZ(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Make the 3D work on the container */
+.starwars-demo {
+  perspective: 800px;
+  transform-style: preserve3d;
+}
+
+/* General styles and layout */
+body {
+  background: #000 ;
+}
+
+.starwars-demo {
+  height: 17em;
+  left: 50%;
+  position: absolute;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  width: 34em;
+}
+
+.byline span {
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}
+
+.star, .wars, .byline {
+  position: absolute;
+}
+
+.star {
+  top: -0.75em;
+}
+
+.wars {
+  bottom: -0.5em;
+}
+
+.byline {
+  color: #fff;
+  font-family: "ITC Serif Gothic", Lato;
+  font-size: 2.25em;
+  left: -2em;
+  letter-spacing: 0.4em;
+  right: -2em;
+  text-align: center;
+  text-transform: uppercase;
+  top: 29%;
+}
+
+
+.container {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+}
+
+.hidden {
+ 
+ 
+  opacity: 0; /* torna o botão inicialmente invisível */
+  animation: aparecer 2s 10s forwards; /* aplica a animação com um atraso de 10s */
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: gold;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: transparent;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.animated-button:hover {
+  font-size: 24px;
+}
+
+/* Pseudo-elemento para a borda dourada */
+
+
+/* Animação para a borda dourada */
+@keyframes border-dance {
+    0% {background-size: 100% auto, auto auto, auto auto, auto auto;}
+    25% {background-size: auto 100%, auto auto, auto auto, auto auto;}
+    50% {background-size: auto auto, 100% auto, auto auto, auto auto;}
+    75% {background-size: auto auto, auto auto, auto 100%, auto auto;}
+    100% {background-size: auto auto, auto auto, auto auto, 100%;}
+}
+
+
+@media only screen and (max-width: 600px) {
+  .starwars-demo {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .starwars-demo {
+    font-size: 7px;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0; /* torna o botão inicialmente invisível */
+  }
+  to {
+    opacity: 1; /* torna o botão visível */
+  }
+}
+
+
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+}
+
+ * {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 196px;
+  background-color: #000000;
+  padding: 24px;
+}
+.sidebar .logo img {
+  width: 130px;
+}
+.sidebar .navigation ul {
+  list-style: none;
+  margin-top: 20px;
+}
+.sidebar .navigation ul li {
+  padding: 10px 0px;
+}
+.sidebar .navigation ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  color: #ffffff;
+}
+.sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+  color: #b3b3b3;
+}
+.sidebar .navigation ul li .fa {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  color: #ffffff;
+}
+.sidebar .policies {
+  position: absolute;
+  bottom: 50px;
+}
+.sidebar .policies ul {
+  list-style: none;
+}
+.sidebar .policies ul li {
+  padding-bottom: 5px;
+}
+.sidebar .policies ul li a {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 10px;
+}
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+.main-container {
+  margin-left: 245px;
+  margin-bottom: 100px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #101010;
+  padding: 14px 30px;
+}
+.topbar .prev-next-buttons button {
+  color: #7a7a7a;
+  cursor: not-allowed;
+  width: 34px;
+  height: 34px;
+  border-radius: 100%;
+  font-size: 18px;
+  border: 0px;
+  background-color: #090909;
+  margin-right: 10px;
+}
+.topbar .navbar {
+  display: flex;
+  align-items: center;
+}
+.topbar .navbar ul {
+  list-style: none;
+}
+.topbar .navbar ul li {
+  display: inline-block;
+  margin: 0px 8px;
+  width: 70px;
+}
+.topbar .navbar ul li a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.topbar .navbar ul li a:hover,
+.topbar .navbar ul li a:active,
+.topbar .navbar ul li a:focus {
+  color: #ffffff;
+  font-size: 15px;
+}
+.topbar .navbar ul li.divider {
+  color: #ffffff;
+  font-size: 26px;
+  margin: 0px 20px;
+  width: auto;
+}
+.topbar .navbar button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+.topbar .navbar button:hover,
+.topbar .navbar button:active,
+.topbar .navbar button:focus {
+  background-color: #f2f2f2;
+}
+.spotify-playlists {
+  padding: 20px 40px;
+}
+.spotify-playlists h2 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.spotify-playlists .list {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+.spotify-playlists .list .item {
+  min-width: 140px;
+  width: 160px;
+  padding: 15px;
+  background-color: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all ease 0.4s;
+}
+.spotify-playlists .list .item:hover {
+  background-color: #252525;
+}
+.spotify-playlists .list .item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.spotify-playlists .list .item .play {
+  position: relative;
+}
+.spotify-playlists .list .item .play .fa {
+  position: absolute;
+  right: 10px;
+  top: -60px;
+  padding: 18px;
+  background-color: #1db954;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all ease 0.4s;
+}
+.spotify-playlists .list .item:hover .play .fa {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+.spotify-playlists .list .item h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spotify-playlists .list .item p {
+  color: #989898;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.spotify-playlists hr {
+  margin: 70px 0px 0px;
+  border-color: #636363;
+}
+
+.preview {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #ae2896, #509bf5);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.preview h6 {
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.preview p {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.preview button {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px 30px;
+  border: 0px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+
+      </style>
+
+      <script>
+        var byline = document.getElementById('byline');   // Find the H2
+bylineText = byline.innerHTML;                    // Get the content of the H2
+bylineArr = bylineText.split('');                 // Split content into array
+byline.innerHTML = '';                            // Empty current content
+
+var span;         // Create variables to create elements
+var letter;
+
+for(i=0;i<bylineArr.length;i++){                  // Loop for every letter
+  span = document.createElement("span");          // Create a <span> element
+  letter = document.createTextNode(bylineArr[i]); // Create the letter
+  if(bylineArr[i] == ' ') {                       // If the letter is a space...
+    byline.appendChild(letter);         // ...Add the space without a span
+  } else {
+    span.appendChild(letter);           // Add the letter to the span
+    byline.appendChild(span);           // Add the span to the h2
+  }
+}
+
+document.querySelector('.byline').addEventListener('animationend', function() {
+  this.style.display = 'none';
+});
+
+      </script>
+
+
+
+<title>Document</title>
+</head>
+<body>
+    <body>
+      <div class="hidden">
+      <div class="sidebar">
+        <div class="logo">
+          <a href="#">
+            <img src="logo.jpg" alt="Logo" />
+          </a>
+        </div>
+  
+        <div class="navigation">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="fa fa-home"></span>
+                <span>Home</span>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#">
+                <span class="fa fa-search"></span>
+                <span>Search</span>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#">
+                <span class="fa fas fa-book"></span>
+                <span>Your Library</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="navigation">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="fa fas fa-plus-square"></span>
+                <span>Create Playlist</span>
+              </a>
+            </li>
+  
+            <li>
+              <a href="#">
+                <span class="fa fas fa-heart"></span>
+                <span>Liked Songs</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="policies">
+          <ul>
+            <li>
+              <a href="#">Cookies</a>
+            </li>
+            <li>
+              <a href="#">Privacy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="main-container">
+        <div class="topbar">
+          <div class="prev-next-buttons">
+            <button type="button" class="fa fas fa-chevron-left"></button>
+            <button type="button" class="fa fas fa-chevron-right"></button>
+          </div>
+  
+          <div class="navbar">
+            <ul>
+              <li>
+                <a href="#">Premium</a>
+              </li>
+              <li>
+                <a href="#">Support</a>
+              </li>
+              <li>
+                <a href="#">Download</a>
+              </li>
+              <li class="divider">|</li>
+              <li>
+                <a href="#">Sign Up</a>
+              </li>
+            </ul>
+            <button type="button">Log In</button>
+          </div>
+        </div>
+  
+        <div class="spotify-playlists">
+          <h2>Spotify Playlists</h2>
+  
+          <div class="list">
+            <a href="qualeamusica-main/index1.html">
+            <div class="item">
+              <img src="img_rock/ac-dc.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Highway to Hell</h4>
+              <p>AC/DC</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/guns.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Appetite for Destruction</h4>
+              <p>Guns N' Roses</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/aerosmith.jpeg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Permanent Vacation</h4>
+              <p>Aerosmith</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/bon-jovi.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Slippery When Wet</h4>
+              <p>Bon Jovi</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/iron.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>The Number of the Beast</h4>
+              <p>Iron Maiden</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/paranoid.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Paranoid</h4>
+              <p>Black Sabbath</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/ozzy.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Blizzard of Ozz</h4>
+              <p>Ozzy Osbourne</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/for-all.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>And Justice for All</h4>
+              <p>Metallica</p>
+            </div>
+          </div>
+        </a>
+        </div>
+  
+        <div class="spotify-playlists">
+          <h2></h2>
+          <div class="list">
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/death.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Leprosy</h4>
+              <p>Death</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/journery.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Escape</h4>
+              <p>Journey</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/poison.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Open Up and Say...Ahh!</h4>
+              <p>Poison</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/europe.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>The Final Countdown</h4>
+              <p>Europe</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/kiss.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Lick It Up</h4>
+              <p>Kiss</p>
+            </a>
+            </div>
+            
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/judas.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>British Steel</h4>
+              <p>Judas Priest</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/pantera.jpeg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Cowboys from Hell</h4>
+              <p>Pantera</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/mega.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Peace Sells... but Who's Buying?</h4>
+              <p>Megadeath</p>
+            </div>
+          </div>
+        </a>
+        </div>
+  
+        <div class="spotify-playlists">
+          <h2></h2>
+          <div class="list">
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/slipknot.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Slipknot</h4>
+              <p>Slipknot</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/chaos.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Chaos A.D.</h4>
+              <p>Sepultura</p>
+            </a>
+            </div>
+  
+            <div class="item">]
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/queen.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>A Kind of Magic</h4>
+              <p>Queen</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/van.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>1984</h4>
+              <p>Van Halen</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/dio.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Holy Diver</h4>
+              <p>Dio</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/anthrax.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Spreading the Disease</h4>
+              <p>Anthrax</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/Wasp.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>W.A.S.P.</h4>
+              <p>WASP</p>
+            </a>
+            </div>
+  
+            <div class="item">
+              <a href="qualeamusica-main/index1.html">
+              <img src="img_rock/Twisted.jpg" />
+              <div class="play">
+                <span class="fa fa-play"></span>
+              </div>
+              <h4>Stay Hungry</h4>
+              <p>Twisted Sister</p>
+            </div>
+          </a>
+          </div>
+
+          
+  
+          <hr>
+        </div>
+  
+  
+      <script
+        src="https://kit.fontawesome.com/23cecef777.js"
+        crossorigin="anonymous"
+    ></script>
+  </div>
+</body>
+</html>
+
+
+
+</body>
+</html>

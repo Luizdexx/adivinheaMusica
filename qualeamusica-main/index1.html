@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Qual é a música?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<header>
+  <h1>Adivinhe a Música</h1>
+</header>
+<body>
+  <button id="start-game" onclick="startGame()">Iniciar jogo</button>
+  <div id="game-container"></div>
+  <div class="dark-mode-container hidden">
+  <button id="play-music" class="hidden">Play</button>
+  <label id="lbl-resposta" for="resposta" class="hidden">Qual é a música?</label>
+  <input type="text" id="resposta" class="hidden"></input>
+  <button id="btn-resposta" class="hidden">Enviar</button>
+  <h2 id="pontuacao">pontuação:
+    <span id="pontos">0</span>
+    </h2>
+  </div>
+  <section id="musicas">  
+    <li id="titulo">Músicas:</li>
+    <ul id="coluna1" class="coluna"> 
+    <li>...And Justice for All</li>
+    <li>One</li>
+    <li>Paranoid</li>
+    <li>Iron Man</li>
+    <li>Leprosy</li>
+    <li>Pull the Plug</li>
+    <li>We're Not Gonna Take It</li>
+    <li>I Wanna Rock</li>
+    <li>Crazy Train</li>
+    <li>Mr. Crowley</li>
+    <li>Refuse / Resist</li>
+    <li>Territory</li>
+    <li>Breaking The Law</li>
+    <li>Living After Midnight</li>
+    <li>The Number of the Beast - 2015 Remaster</li>
+    <li>Run to the Hills - 2015 Remaster</li>
+    <li>L.O.V.E. Machine</li>
+    <li>I Wanna Be Somebody</li>
+    <li>Madhouse</li>
+    <li>Indians</li>
+    <li>Holy Diver</li>
+    <li>Rainbow In The Dark</li>
+    <li>Panama - 2015 Remaster</li>
+    <li>Jump - 2015 Remaster</li>
+    </ul>
+    <ul id="coluna2" class="coluna">
+    <li>A Kind Of Magic - Remastered 2011</li>
+    <li>Princes Of The Universe - Remastered 2011</li>
+    <li>Wait and Bleed</li>
+    <li>(sic)</li>
+    <li>Cemetery Gates</li>
+    <li>Cowboys from Hell</li>
+    <li>Wake Up Dead - 2004 Remaster</li>
+    <li>Peace Sells - Remastered</li>
+    <li>All Hell's Breakin' Loose</li>
+    <li>Lick It Up</li>
+    <li>Carrie</li>
+    <li>The Final Countdown</li>
+    <li>Rag Doll</li>
+    <li>Dude (Looks Like A Lady)</li>
+    <li>Livin' On A Prayer</li>
+    <li>You Give Love A Bad Name</li>
+    <li>Welcome To The Jungle</li>
+    <li>Sweet Child O' Mine</li>
+    <li>Girls Got Rhythm</li>
+    <li>Highway to Hell</li>
+    <li>Don't Stop Believin'</li>
+    <li>Who's Crying Now (2022 Remaster)</li>
+    <li>Nothin' But A Good Time</li>
+    <li>Every Rose Has Its Thorn</li>
+    </ul>
+
+</section>
+</body>
+
+<script src="https://sdk.scdn.co/spotify-player.js"></script>
+<script src="script.js"></script>
+</html>
